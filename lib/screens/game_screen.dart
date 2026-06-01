@@ -165,10 +165,22 @@ class _GameScreenState extends State<GameScreen> {
           _shuffledCards[_previousSelectedIndex] == _shuffledCards[index];
 
       if (isMatch) {
+
+        final matchedCard = _shuffledCards[index];
+
+        final audioPath = GameTheme.cardAudios[matchedCard];
+
+        if (audioPath != null) {
+          _audioService.playSound(
+            audioPath,
+            _soundEnabled,
+          );
+        } else {
         _audioService.playSound(
           'audio/success.mp3',
           _soundEnabled,
         );
+        }
 
         setState(() {
           _updateScore(isMatch: true);
@@ -176,7 +188,8 @@ class _GameScreenState extends State<GameScreen> {
         });
 
         _checkWinCondition();
-      } else {
+        }
+        else{
         _audioService.playSound(
           'audio/error.mp3',
           _soundEnabled,

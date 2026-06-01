@@ -34,4 +34,15 @@ class GameTheme {
     'assets/images/Tokusatsu4.png',
     'assets/images/Tokusatsu5.png',
   ];
+
+  static const Map<String, String> cardAudios = {
+  'assets/images/lion_man.jpg':
+      'audio/lion_man.mp3',
+
+  'assets/images/orko_he_man.png':
+      'audio/orko.mp3',
+
+  'assets/images/thundercats.png':
+      'audio/thundercats.mp3',
+  };
 }
