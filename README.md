@@ -16,28 +16,29 @@ O jogo inclui sistema de pontuação, níveis de dificuldade, efeitos sonoros e 
 
 ## Objetivo
 
-- Encontrar todos os pares de cartas iguais
-- Fazer a maior pontuação possível
-- Bater o recorde salvo no dispositivo
+* Encontrar todos os pares de cartas iguais
+* Fazer a maior pontuação possível
+* Bater o recorde salvo no dispositivo
 
 ---
 
 ## Mecânica do jogo
 
-- O jogador vira duas cartas por vez
-- Se forem iguais, permanecem viradas
-- Se forem diferentes, voltam após 1 segundo
-- O jogo termina ao encontrar todos os pares ou acabar as tentativas
+* O jogador vira duas cartas por vez
+* Se forem iguais, permanecem viradas
+* Se forem diferentes, voltam após 1 segundo
+* O jogo termina ao encontrar todos os pares ou acabar as tentativas
 
 ---
 
 ## Sistema de pontuação
 
-- +100 pontos por acerto
-- -50 pontos por erro
-- Bônus final baseado em:
-  - tempo de conclusão
-  - quantidade de erros
+* +100 pontos por acerto
+* -50 pontos por erro
+* Bônus final baseado em:
+
+  * tempo de conclusão
+  * quantidade de erros
 
 O recorde é salvo automaticamente usando `shared_preferences`.
 
@@ -48,20 +49,23 @@ O recorde é salvo automaticamente usando `shared_preferences`.
 O jogo possui dois modos:
 
 ### 🟢 Normal
-- 8 tentativas
-- tempo maior de memorização
+
+* 8 tentativas
+* tempo maior de memorização
 
 ### 🔴 Hardcore
-- 4 tentativas
-- maior desafio
+
+* 4 tentativas
+* maior desafio
 
 ---
 
 ## Áudio
 
 O jogo possui efeitos sonoros para:
-- acertos ✔
-- erros ❌
+
+* acertos ✔
+* erros ❌
 
 Pode ser ativado/desativado nas configurações.
 
@@ -69,21 +73,30 @@ Pode ser ativado/desativado nas configurações.
 
 ## Telas do app
 
+<p align="center">
+  <img src="images/Tela_inicial.png" alt="Tela Inicial" width="220"/>
+  <img src="images/Tela_jogo.png" alt="Tela Jogo" width="220"/>
+  <img src="images/Tela_configuracoes.png" alt="Tela Configurações" width="220"/>
+  <img src="images/Tela_memorize_as_cartas.png" alt="Tela Memorize as Cartas" width="220"/>
+</p>
+
 ### Jogo
-- Grid de cartas
-- Score em tempo real
-- Tentativas restantes
-- Erros
-- Recorde
-- Botão de reiniciar
+
+* Grid de cartas
+* Score em tempo real
+* Tentativas restantes
+* Erros
+* Recorde
+* Botão de reiniciar
 
 ---
 
 ### Configurações
-- Checkbox: ativar/desativar som
-- Radio buttons: dificuldade
-- Botão de salvar configurações
-- Feedback via SnackBar
+
+* Checkbox: ativar/desativar som
+* Radio buttons: dificuldade
+* Botão de salvar configurações
+* Feedback via SnackBar
 
 ---
 
@@ -91,8 +104,8 @@ Pode ser ativado/desativado nas configurações.
 
 O app utiliza `BottomNavigationBar` com duas abas:
 
-- Jogo
-- Configurações
+* Jogo
+* Configurações
 
 ---
 
@@ -100,9 +113,9 @@ O app utiliza `BottomNavigationBar` com duas abas:
 
 Utiliza `shared_preferences` para salvar:
 
-- Recorde (high score)
-- Som ativado/desativado
-- Dificuldade escolhida
+* Recorde (high score)
+* Som ativado/desativado
+* Dificuldade escolhida
 
 ---
 
@@ -128,26 +141,26 @@ lib/
 │ 
 ├── main.dart
 
-````
+```
 
 ---
 
 ## Tecnologias utilizadas
 
-- Flutter
-- Dart
-- Material Design
-- shared_preferences
-- audioplayers
+* Flutter
+* Dart
+* Material Design
+* shared_preferences
+* audioplayers
 
 ---
 
 ## Como executar o projeto
 
-````bash
+```bash
 flutter pub get
 flutter run
-`````
+```
 
 ---
 
