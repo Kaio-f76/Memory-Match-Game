@@ -331,13 +331,18 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            if (!_gameStarted)
-              Text(
+            const SizedBox(height: 10),
+            Visibility(
+              visible: !_gameStarted,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: Text(
                 'Memorize as cartas...',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
-            const SizedBox(height: 30),
+            ),
+            const SizedBox(height: 20),
             Expanded(
               child: GridView.builder(
                 itemCount: _shuffledCards.length,
