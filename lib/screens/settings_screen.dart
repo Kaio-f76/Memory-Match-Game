@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -13,13 +12,11 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   bool _soundOption = true;
-
   int _difficultyRadio = 1;
 
   @override
   void initState() {
     super.initState();
-
     _loadSettings();
   }
 
@@ -28,7 +25,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     setState(() {
       _soundOption = prefs.getBool('sound_enabled') ?? true;
-
       _difficultyRadio = prefs.getInt('difficulty') ?? 1;
     });
   }
@@ -72,45 +68,75 @@ class _SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(height: 40),
           Text(
             'Configurações',
-            style: Theme.of(context).textTheme.headlineMedium,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  color: Colors.white, // Garante visibilidade no fundo escuro
+                ),
           ),
-          const Divider(),
+          const Divider(color: Colors.white30),
           const SizedBox(height: 10),
           const SizedBox(height: 20),
-          CheckboxListTile(
-            title: const Text(
-              'Efeitos sonoros',
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.8), // Fundo preto transparente
+              borderRadius: BorderRadius.circular(12),
             ),
-            value: _soundOption,
-            onChanged: (value) {
-              setState(() {
-                _soundOption = value ?? true;
-              });
-            },
+            child: CheckboxListTile(
+              title: const Text(
+                'Efeitos sonoros',
+                style: TextStyle(color: Colors.white),
+              ),
+              value: _soundOption,
+              activeColor: Colors.white, // Cor do Checkbox quando ativo
+              checkColor: Colors.black,
+              onChanged: (value) {
+                setState(() {
+                  _soundOption = value ?? true;
+                });
+              },
+            ),
           ),
           const SizedBox(height: 20),
           const Text(
             'Dificuldade',
+            style:
+                TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
           ),
-          RadioListTile<int>(
-            title: const Text('Normal'),
-            value: 1,
-            groupValue: _difficultyRadio,
-            onChanged: (value) {
-              setState(() {
-                _difficultyRadio = value ?? 1;
-              });
-            },
-          ),
-          RadioListTile<int>(
-            title: const Text('Hardcore'),
-            value: 2,
-            groupValue: _difficultyRadio,
-            onChanged: (value) {
-              setState(() {
-                _difficultyRadio = value ?? 2;
-              });
-            },
+          const SizedBox(height: 10),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.8), // Fundo preto transparente
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              children: [
+                RadioListTile<int>(
+                  title: const Text('Normal',
+                      style: TextStyle(color: Colors.white)),
+                  value: 1,
+                  groupValue: _difficultyRadio,
+                  activeColor: Colors.white,
+                  onChanged: (value) {
+                    setState(() {
+                      _difficultyRadio = value ?? 1;
+                    });
+                  },
+                ),
+                // Uma linha divisória sutil entre as duas opções de rádio
+                const Divider(height: 1, color: Colors.white12),
+                RadioListTile<int>(
+                  title: const Text('Hardcore',
+                      style: TextStyle(color: Colors.white)),
+                  value: 2,
+                  groupValue: _difficultyRadio,
+                  activeColor: Colors.white,
+                  onChanged: (value) {
+                    setState(() {
+                      _difficultyRadio = value ?? 2;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 30),
           ElevatedButton(
