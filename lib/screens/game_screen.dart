@@ -137,7 +137,6 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  // 🔥 SCORE ALTERADO SOMENTE AQUI
   void _updateScore({required bool isMatch}) {
     if (isMatch) {
       _score += 100;
@@ -165,7 +164,6 @@ class _GameScreenState extends State<GameScreen> {
           _shuffledCards[_previousSelectedIndex] == _shuffledCards[index];
 
       if (isMatch) {
-
         final matchedCard = _shuffledCards[index];
 
         final audioPath = GameTheme.cardAudios[matchedCard];
@@ -176,10 +174,10 @@ class _GameScreenState extends State<GameScreen> {
             _soundEnabled,
           );
         } else {
-        _audioService.playSound(
-          'audio/success.mp3',
-          _soundEnabled,
-        );
+          _audioService.playSound(
+            'audio/success.mp3',
+            _soundEnabled,
+          );
         }
 
         setState(() {
@@ -188,8 +186,7 @@ class _GameScreenState extends State<GameScreen> {
         });
 
         _checkWinCondition();
-        }
-        else{
+      } else {
         _audioService.playSound(
           'audio/error.mp3',
           _soundEnabled,
