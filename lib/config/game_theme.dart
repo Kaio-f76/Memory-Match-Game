@@ -44,5 +44,11 @@ class GameTheme {
 
   'assets/images/thundercats.png':
       'audio/thundercats.mp3',
+
+  'assets/images/Tokusatsu4.png':
+      'audio/jaspion.mp3',
+
+  'assets/images/Tokusatsu1.png':
+      'audio/jiraya.mp3',
   };
 }
